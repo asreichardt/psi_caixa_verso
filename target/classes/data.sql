@@ -1,4 +1,4 @@
--- Criar tabela de produtos
+
 CREATE TABLE IF NOT EXISTS produto (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome VARCHAR(255) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS produto (
     ativo BOOLEAN NOT NULL DEFAULT true
 );
 
--- Inserir produtos iniciais (UM POR LINHA - SQLite não suporta múltiplos INSERTs)
+
 INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minimo_meses, ativo) VALUES ('CDB Banco ABC 2026', 'CDB', 0.12, 'Baixo', 1000.00, 6, true);
 INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minimo_meses, ativo) VALUES ('CDB Banco XYZ 2027', 'CDB', 0.15, 'Baixo', 500.00, 12, true);
 INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minimo_meses, ativo) VALUES ('Fundo Conservador XPTO', 'Fundo', 0.08, 'Baixo', 1000.00, 3, true);
@@ -19,7 +19,6 @@ INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minim
 INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minimo_meses, ativo) VALUES ('Tesouro Direto IPCA+', 'Tesouro', 0.06, 'Baixo', 100.00, 12, true);
 INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minimo_meses, ativo) VALUES ('Ações Blue Chips', 'Ações', 0.20, 'Alto', 10000.00, 24, true);
 
--- Inserir mais 10 produtos (UM POR LINHA)
 INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minimo_meses, ativo) VALUES ('CDB Premium Banco Brasil', 'CDB', 0.135, 'Baixo', 2000.00, 12, true);
 INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minimo_meses, ativo) VALUES ('Fundo Imobiliário Shopping Center', 'FII', 0.095, 'Médio', 500.00, 6, true);
 INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minimo_meses, ativo) VALUES ('LCI Banco Verde', 'LCI', 0.088, 'Baixo', 1000.00, 12, true);
@@ -31,7 +30,7 @@ INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minim
 INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minimo_meses, ativo) VALUES ('Fundo Cambial Dólar', 'Fundo', 0.068, 'Baixo', 2000.00, 12, true);
 INSERT INTO produto (nome, tipo, rentabilidade, risco, valor_minimo, prazo_minimo_meses, ativo) VALUES ('Ações Small Caps', 'Ações', 0.315, 'Alto', 5000.00, 36, true);
 
--- Criar tabela de simulações
+
 CREATE TABLE IF NOT EXISTS simulacao (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     cliente_id BIGINT NOT NULL,
@@ -43,7 +42,7 @@ CREATE TABLE IF NOT EXISTS simulacao (
     tipo_produto VARCHAR(100) NOT NULL
 );
 
--- Inserir 5 simulações de exemplo (UM POR LINHA)
+
 INSERT INTO simulacao (cliente_id, produto, valor_investido, valor_final, prazo_meses, data_simulacao, tipo_produto) VALUES (101, 'CDB Banco ABC 2026', 5000.00, 5300.00, 6, '2025-10-01 09:15:00', 'CDB');
 INSERT INTO simulacao (cliente_id, produto, valor_investido, valor_final, prazo_meses, data_simulacao, tipo_produto) VALUES (102, 'Fundo Conservador XPTO', 10000.00, 10200.00, 3, '2025-10-01 10:30:00', 'Fundo');
 INSERT INTO simulacao (cliente_id, produto, valor_investido, valor_final, prazo_meses, data_simulacao, tipo_produto) VALUES (103, 'CDB Banco XYZ 2027', 15000.00, 17250.00, 12, '2025-10-02 11:45:00', 'CDB');
@@ -51,8 +50,6 @@ INSERT INTO simulacao (cliente_id, produto, valor_investido, valor_final, prazo_
 INSERT INTO simulacao (cliente_id, produto, valor_investido, valor_final, prazo_meses, data_simulacao, tipo_produto) VALUES (104, 'Fundo Moderado ABCD', 12000.00, 13440.00, 6, '2025-10-03 08:50:00', 'Fundo');
 INSERT INTO simulacao (cliente_id, produto, valor_investido, valor_final, prazo_meses, data_simulacao, tipo_produto) VALUES
 (101, 'CDB Banco ABC 2026', 5000.00, 5300.00, 6, '2025-10-01 09:15:00', 'CDB');
-
-
 
 INSERT INTO simulacao (cliente_id, produto, valor_investido, valor_final, prazo_meses, data_simulacao, tipo_produto) 
 VALUES (101, 'CDB Banco ABC 2026', 5000.00, 5300.00, 6, '2025-10-01 09:15:00', 'CDB');
@@ -157,11 +154,6 @@ INSERT INTO simulacao (cliente_id, produto, valor_investido, valor_final, prazo_
 (101, 'CDB Banco Digital', 4200.00, 4317.60, 3, '2025-10-16 10:50:00', 'CDB');
 
 
-
-
-
-
-
 -- Criar tabela de telemetria
 CREATE TABLE IF NOT EXISTS telemetria (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -170,7 +162,6 @@ CREATE TABLE IF NOT EXISTS telemetria (
     data_chamada TIMESTAMP NOT NULL,
     sucesso BOOLEAN NOT NULL
 );
-
 
 INSERT INTO telemetria (nome_servico, tempo_resposta_ms, data_chamada, sucesso) VALUES ('simulacao-service', 150, '2025-10-01 10:00:00', true);
 INSERT INTO telemetria (nome_servico, tempo_resposta_ms, data_chamada, sucesso) VALUES ('produto-service', 80, '2025-10-01 11:00:00', true);
