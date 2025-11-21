@@ -8,5 +8,5 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:sqlite:/data/investimento.db
     volumes:
-      - ./data:/data
+      - ./db:/data
     restart: unless-stopped

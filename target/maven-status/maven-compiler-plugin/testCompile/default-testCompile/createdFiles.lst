@@ -1,0 +1,8 @@
+com\investimento\controller\TelemetriaControllerIntegrationTest.class
+com\investimento\controller\AuthControllerIntegrationTest.class
+com\investimento\controller\TelemetriaControllerTest.class
+com\investimento\controller\RecomendacaoControllerIntegrationTest.class
+com\investimento\controller\SimulacaoControllerIntegrationTest.class
+com\investimento\controller\AuthControllerTest.class
+com\investimento\controller\RecomendacaoControllerTest.class
+com\investimento\controller\SimulacaoControllerTest.class
